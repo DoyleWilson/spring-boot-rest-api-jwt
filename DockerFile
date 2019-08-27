@@ -1,0 +1,7 @@
+FROM openjdk:8-jdk-alpine
+
+EXPOSE 8080
+ARG JAR_FILE=target/spring-boot-2-rest-service-basic-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} boot-jwt.jar
+
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/boot-jwt.jar"]
